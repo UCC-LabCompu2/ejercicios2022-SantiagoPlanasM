@@ -248,7 +248,7 @@ function dibujarCirculoCuadrado(){
     let margen = 10;
     let tamCuadrado = 50;
 
-    ctx.fillRect(0+margen, yMax-50-margen, tamCuadrado, tamCuadrado);
+    ctx.fillRect(margen, yMax-50-margen, tamCuadrado, tamCuadrado);
 
     ctx.arc(xMax/2, yMax/2, 20, 0, 2*Math.PI);
     ctx.stroke();
