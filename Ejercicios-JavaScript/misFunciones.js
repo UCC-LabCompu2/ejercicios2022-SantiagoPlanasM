@@ -25,22 +25,22 @@ function conversionUnidades(id, valor){
         pulgada = "";
         pie = "";
         yarda = "";
-    }else if(id=="metro"){
+    }else if(id==="metro"){
         metro = valor;
         pie = 3.28084*valor;
         yarda = 1.09361*valor;
         pulgada = 39.3701*valor;
-    }else if(id=="pulgada"){
+    }else if(id==="pulgada"){
         pulgada = valor;
         pie = 0.0833333*valor;
         yarda = 0.0277778*valor;
         metro = 0.0254*valor;
-    }else if(id=="pie"){
+    }else if(id==="pie"){
         pie = valor;
         pulgada = 12*valor;
         yarda = 0.333333*valor;
         metro = 0.3048*valor;
-    }else if (id=="yarda"){
+    }else if (id==="yarda"){
         yarda = valor;
         pulgada = 36*valor;
         pie = 3*valor;
@@ -55,10 +55,10 @@ function conversionUnidades(id, valor){
 function convertirGR(id){
     let grad, rad;
 
-    if (id=="grados"){
+    if (id==="grados"){
         grad = document.getElementById("grados").value;
         rad = (grad*Math.PI)/180;
-    }else if(id=="radianes"){
+    }else if(id==="radianes"){
         rad = document.getElementById("radianes").value;
         grad = (rad*180)/Math.PI;
     }
@@ -68,9 +68,9 @@ function convertirGR(id){
 }
 
 function mostrar_ocultar(valorMO){
-    if (valorMO=="val_mostrar"){
+    if (valorMO==="val_mostrar"){
         document.getElementById("unDiv").style.display = 'block';
-    }else if(valorMO=="val_ocultar"){
+    }else if(valorMO==="val_ocultar"){
         document.getElementById("unDiv").style.display = 'none';
     }
 }
@@ -97,7 +97,7 @@ function cargarResultado(){
 
     document.getElementById("dist").value = cantidad + " " + unidad;
 }
-
+/**
 function guardarLocalStorage(){
     let distancia, unidad;
     distancia = document.getElementById('distancia').value;
@@ -114,51 +114,35 @@ function cargarLocalStorage(){
 
     document.getElementById("dist").value = cantidad + " " + unidad;
 }
-
-function dibujarCirculoCuadrado(){
-    let canvas = document.getElementById("myCanvas");
-    let ctx = canvas.getContext("2d");
-
-    let xMax = canvas.width;
-    let yMax = canvas.height;
-    let margen = 10;
-    let tamCuadrado = 50;
-
-    ctx.fillRect(0+margen, yMax-50-margen, tamCuadrado, tamCuadrado);
-
-    ctx.arc(xMax/2, yMax/2, 20, 0, 2*Math.PI);
-    ctx.stroke();
-    ctx.fillStyle = "#3c91d2";
-    ctx.fill();
+*/
+function cSuma(){
+    let num1, num2;
+    num1 = Number(document.getElementById("nums1").value);
+    num2 = document.getElementsByName("sum_num2")[0].value;
+    document.getElementById("totalS").innerHTML = num1 + Number(num2);
 }
 
-var bandera;
-
-function borrarCanvas(){
-    let canvas = document.getElementById("lienzoDibujo");
-    let ctx = canvas.getContext("2d");
-
-    canvas.width = canvas.width;
+function cResta(){
+    let num1, num2;
+    num1 = Number(document.getElementById("numr1").value);
+    num2 = Number(document.getElementById("numr2").value);
+    document.getElementById("totalR").innerHTML = num1 - num2;
 }
 
-function cargarListener(){
-    document.getElementById("lienzoDibujo").addEventListener("mousemove", function(event){
-        let canvas = document.getElementById("lienzoDibujo");
-        let ctx = canvas.getContext("2d");
-
-        let posX = event.clientX;
-        let posY = event.clientY;
-
-        console.log(posX, posY);
-
-        canvas.onmousedown = function(){bandera=true};
-        canvas.onmouseup = function(){bandera=false};
-
-        if (bandera){
-            ctx.fillRect(posX-10, posY-10, 5, 5);
-        }
-    });
+function cMulti(){
+    let num1, num2;
+    num1 = Number(document.getElementById("numm1").value);
+    num2 = Number(document.getElementById("numm2").value);
+    document.getElementById("totalM").innerHTML = num1 * num2;
 }
+
+function cDivision(){
+    let num1, num2;
+    num1 = Number(document.getElementById("numd1").value);
+    num2 = Number(document.getElementById("numd2").value);
+    document.getElementById("totalD").innerHTML = num1 / num2;
+}
+
 
 function dibujarCuadriculado(){
     let canvas = document.getElementById("myCanvas");
@@ -255,30 +239,19 @@ function animarAuto(){
     x = x + dx;
 }
 
-function cSuma(){
-    let num1, num2;
-    num1 = Number(document.getElementById("nums1").value);
-    num2 = document.getElementsByName("sum_num2")[0].value;
-    document.getElementById("totalS").innerHTML = num1 + Number(num2);
-}
+function dibujarCirculoCuadrado(){
+    let canvas = document.getElementById("myCanvas");
+    let ctx = canvas.getContext("2d");
 
-function cResta(){
-    let num1, num2;
-    num1 = Number(document.getElementById("numr1").value);
-    num2 = Number(document.getElementById("numr2").value);
-    document.getElementById("totalR").innerHTML = num1 - num2;
-}
+    let xMax = canvas.width;
+    let yMax = canvas.height;
+    let margen = 10;
+    let tamCuadrado = 50;
 
-function cMulti(){
-    let num1, num2;
-    num1 = Number(document.getElementById("numm1").value);
-    num2 = Number(document.getElementById("numm2").value);
-    document.getElementById("totalM").innerHTML = num1 * num2;
-}
+    ctx.fillRect(0+margen, yMax-50-margen, tamCuadrado, tamCuadrado);
 
-function cDivision(){
-    let num1, num2;
-    num1 = Number(document.getElementById("numd1").value);
-    num2 = Number(document.getElementById("numd2").value);
-    document.getElementById("totalD").innerHTML = num1 / num2;
+    ctx.arc(xMax/2, yMax/2, 20, 0, 2*Math.PI);
+    ctx.stroke();
+    ctx.fillStyle = "#3c91d2";
+    ctx.fill();
 }
