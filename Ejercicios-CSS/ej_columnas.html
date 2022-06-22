@@ -3,8 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Ejercicio Columnas</title>
+    <style>
+        #tituloPrincipal{
+            color: lightblue;
+        }
+        .tituloNoticia{
+            font-size: 30px;
+        }
+        a:link, a:visited{
+            color: #4CAF50;
+        }
+        a:hover{
+            font-size: 1.4em;
+        }
+        a:active{
+            font-weight: bold;
+        }
+        article{
+            column-count: 2;
+            column-gap: 100px;
+            margin: 0 50px;
+        }
+    </style>
+
 </head>
-<body>
+<body >
 <!--Cree los estilos CSS necesarios para que el texto se visualice en 2 columnas-->
 <header>
     <h1 id="tituloPrincipal">Diario On-line</h1>
@@ -14,7 +37,7 @@
     <h3 class="tituloNoticia">CordoBici</h3>
     Publicado el 07/03/2018 en Agropecuarias y Ambiente
     <article>
-        <div class="columna">
+        <div class="columna1">
             <p>
                 Un intercambio académico inspiró a Joaquín, Nicolás, Guido y Facundo para elegir el tema de su trabajo final.
                 Dos de ellos estuvieron el año pasado en Sevilla y se quedaron "enamorados" –palabras textuales- de su
